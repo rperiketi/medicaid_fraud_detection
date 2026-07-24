@@ -11,6 +11,8 @@ States / Territories: 52 (military postal codes AA/AE/AP excluded from state-lev
 
 ⚠️ Read this before the rest of the README
 This notebook contains **two analytically distinct sections that are easy to conflate**:
+<img width="993" height="576" alt="Screenshot 2026-07-24 at 4 29 57 PM" src="https://github.com/user-attachments/assets/1361d921-75c3-4195-a6cd-dc3d4c433dc8" />
+
 1. **"Top 5 Providers / Provider Types" (composite activity score)** — a pure billing-**volume** ranking (services, beneficiaries, charge, claim lines). It is explicitly **not** a fraud signal: a large, entirely legitimate high-volume provider scores identically to a fraudulent one. Treat it as descriptive EDA, not risk output.
 2. **"Fraud Detection — Risk Flags" onward** — the actual anomaly-based logic (charge-to-payment ratio, services-per-beneficiary, peer-adjusted z-scores, Random Forest). This is where anything resembling "fraud risk" lives.
 
