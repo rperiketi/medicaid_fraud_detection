@@ -9,12 +9,14 @@ Columns: 28 (after cleaning and standardization)
 Provider Specialties: 98 distinct types
 States / Territories: 52 (military postal codes AA/AE/AP excluded from state-level rollups — see Data Quality Investigation below)
 
-⚠️ Read this before the rest of the README
 This notebook contains **two analytically distinct sections that are easy to conflate**:
-<img width="993" height="576" alt="Screenshot 2026-07-24 at 4 29 57 PM" src="https://github.com/user-attachments/assets/1361d921-75c3-4195-a6cd-dc3d4c433dc8" />
 
-1. **"Top 5 Providers / Provider Types" (composite activity score)** — a pure billing-**volume** ranking (services, beneficiaries, charge, claim lines). It is explicitly **not** a fraud signal: a large, entirely legitimate high-volume provider scores identically to a fraudulent one. Treat it as descriptive EDA, not risk output.
+1. **" Provider Types" (composite activity score)** — a pure billing-**volume** ranking (services, beneficiaries, charge, claim lines). It is explicitly **not** a fraud signal: a large, entirely legitimate high-volume provider scores identically to a fraudulent one. Treat it as descriptive EDA, not risk output.
+
+<img width="993" height="492" alt="Screenshot 2026-07-24 at 4 34 25 PM" src="https://github.com/user-attachments/assets/6db3bc05-814d-4187-83b6-2faa53f5083d" />
+   
 2. **"Fraud Detection — Risk Flags" onward** — the actual anomaly-based logic (charge-to-payment ratio, services-per-beneficiary, peer-adjusted z-scores, Random Forest). This is where anything resembling "fraud risk" lives.
+
 
 🗂️ Pipeline Structure
 | # | Block | Description |
@@ -143,13 +145,6 @@ Feature Importances
 | No HCPCS unbundling/upcoding analysis | Procedure code-level review (bundling, upcoding) is not implemented |
 | ML signal is modest, not leak-free-guaranteed | Removing the two label-defining columns fixed the direct circularity, but `total_services`/`total_beneficiaries` are still inputs to the SPB-based utilization flag, so some residual correlation with labeling logic may remain |
 
-🔭 Recommended Next Steps
-- Cross-reference flagged NPIs against the OIG Exclusion List for confirmed bad actors
-- HCPCS code-level analysis — detect unbundling (billing separately for bundled procedures) and upcoding (billing higher-intensity codes)
-- Extend peer benchmarking to state + specialty cohorts jointly, not specialty alone
-- Multi-year CMS data — load full historical dataset to detect temporal billing spikes
-- Network analysis — identify coordinated fraud rings via shared addresses, referring providers, or billing agents
-- Confirmed ground truth labels — integrate CMS/OIG enforcement actions as true fraud labels for a fully supervised model, replacing the rule-derived proxy label entirely
 
 🛠️ Tech Stack
 | Component | Library / Tool |
