@@ -1,4 +1,4 @@
-# Medical Insurance Provider Fraud Detection
+# Medical Insurance Provider Fraud Detection with Random Forest
 CMS Medicare Billing Anomaly Analysis
 
 ## 📌 Project Overview
