@@ -1,12 +1,18 @@
-🏥 Medical Insurance Provider Fraud Detection
-CMS Medicare Part B Billing Anomaly Analysis
+# Medical Insurance Provider Fraud Detection
+CMS Medicare Billing Anomaly Analysis
 
-📌 Project Overview
+## 📌 Project Overview
+
 This project analyzes 100,000 Medicare Part B billing records sourced from the CMS Open Data API to detect anomalies in provider billing patterns and flag potential fraudulent activity. The pipeline covers end-to-end data work — from raw API ingestion through cleaning, exploratory analysis, data-quality investigation, rule-based fraud flagging with peer-group normalization, and a non-circular machine learning classifier.
+
 Data Source: CMS Medicare Physician & Other Practitioners Dataset
+
 Rows Loaded: 100,000 (paginated, 5,000 per batch)
+
 Columns: 28 (after cleaning and standardization)
+
 Provider Specialties: 98 distinct types
+
 States / Territories: 52 (military postal codes AA/AE/AP excluded from state-level rollups — see Data Quality Investigation below)
 
 This notebook contains **two analytically distinct sections that are easy to conflate**:
