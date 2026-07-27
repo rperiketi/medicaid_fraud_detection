@@ -19,7 +19,8 @@ This notebook contains **two analytically distinct sections that are easy to con
 
 1. **" Provider Types" (composite activity score)** — a pure billing-**volume** ranking (services, beneficiaries, charge, claim lines). It is explicitly **not** a fraud signal: a large, entirely legitimate high-volume provider scores identically to a fraudulent one. Treat it as descriptive EDA, not risk output.
 
-<img width="993" height="492" alt="Screenshot 2026-07-24 at 4 34 25 PM" src="https://github.com/user-attachments/assets/6db3bc05-814d-4187-83b6-2faa53f5083d" />
+<img width="974" height="434" alt="Screenshot 2026-07-27 at 5 10 11 PM" src="https://github.com/user-attachments/assets/e8f56fdc-aa79-4901-a97b-42df3ad8d5a2" />
+
    
 2. **"Fraud Detection — Risk Flags" onward** — the actual anomaly-based logic (charge-to-payment ratio, services-per-beneficiary, peer-adjusted z-scores, Random Forest). This is where anything resembling "fraud risk" lives.
 
